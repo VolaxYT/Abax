@@ -6,7 +6,6 @@
 #include <filesystem>
 
 int main(int argc, char* argv[]){
-
     if(argc < 2){
         std::cerr << "Usage : abax <fichier.abax>" << std::endl;
         return 1;
@@ -40,14 +39,12 @@ int main(int argc, char* argv[]){
     int expr_index = 1;
 
     for(auto& token : tokens){
-
         if(token.type == TokenType::SEMICOLON || token.type == TokenType::END){
             if(segment.empty()){
                 if(token.type == TokenType::END) break;
                 continue;
             }
 
-            // Ajoute un END au segment pour que le parser sache s'arrêter
             segment.emplace_back(TokenType::END);
 
             // Reconstruit l'expression en texte pour l'affichage
@@ -73,10 +70,8 @@ int main(int argc, char* argv[]){
                 }
 
                 std::string line = result_str + " ; ";
-                std::cout << line << std::endl;
                 out << line << std::endl;
             } catch(const std::exception& e){
-                std::cout << e.what() << std::endl;
                 out << e.what() << std::endl;
             }
 
@@ -89,6 +84,6 @@ int main(int argc, char* argv[]){
         }
     }
 
-    std::cout << "\nRésultats écrits dans : " << out_path << std::endl;
+    std::cout << out_path << std::endl;
     return 0;
 }

@@ -21,7 +21,6 @@ enum class TokenType {
     END,
 };
 
-// Retourne le caractère associé à un token opérateur
 inline char token_char(TokenType t){
     switch(t){
         case TokenType::PLUS: return '+';

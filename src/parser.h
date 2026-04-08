@@ -4,8 +4,6 @@
 #include <memory>
 #include <stdexcept>
 
-// Noeuds de l'AST
-
 struct Node {
     virtual ~Node() = default;
 };
